@@ -5,9 +5,9 @@ from utils.run_wavesep_sti import run_wavesep_sti
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--yml", type=str, default="data/yml/example_sti.yml")
+parser.add_argument("--data", type=str, default="data/yml/example_sti.yml")
 args = parser.parse_args()
-with open(args.yml, "r") as f:
+with open(args.data, "r") as f:
     data_list = yaml.safe_load(f)
 
 alg_config = {}

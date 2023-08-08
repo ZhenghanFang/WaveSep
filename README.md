@@ -3,12 +3,12 @@
 WaveSep: A Flexible Wavelet-based Approach for Source Separation in Susceptibility Imaging (to appear in [MLCN 2023](https://mlcnworkshop.github.io/))
 
 ## Dependencies
-Create and activate new conda environment
+Create and activate a new conda environment
 ```
 conda create -n wavesep python==3.10
 conda activate wavesep
 ```
-Navigate to this repository in the terminal. Install necessary python packages for the code
+Install necessary python packages
 ```
 pip install -r requirements.txt
 ```
@@ -21,7 +21,7 @@ pip install -e .
 ## Usage
 ### QSM source separation
 ```
-python src/qsm_sep.py --data_info <yml of input data>
+python wavesep/qsm_sep.py --data <yml of input data>
 ``` 
 The yml file contains the input data for QSM source separation. 
 See data/yml/template_qsm.yml for more details.
@@ -29,7 +29,7 @@ See data/yml/example_qsm.yml for an example.
 
 ### STI source separation
 ```
-python src/sti_sep.py --data_info <yml of input data>
+python wavesep/sti_sep.py --data <yml of input data>
 ```
 The yml file contains the input data for STI source separation. 
 See data/yml/template_sti.yml for more details.
