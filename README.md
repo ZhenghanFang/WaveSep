@@ -3,12 +3,9 @@
 WaveSep: A Flexible Wavelet-based Approach for Source Separation in Susceptibility Imaging (to appear in [MLCN 2023](https://mlcnworkshop.github.io/))
 
 ## Dependencies
-Create new conda environment
+Create and activate new conda environment
 ```
 conda create -n wavesep python==3.10
-```
-Activate the environment
-```
 conda activate wavesep
 ```
 Navigate to this repository in the terminal. Install necessary python packages for the code
