@@ -1,0 +1,7 @@
+ipykernel
+matplotlib
+nibabel
+PyWavelets
+PyYAML
+scikit-image
+tqdm
