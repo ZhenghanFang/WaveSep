@@ -1,0 +1,16 @@
+# example yml for sti separation
+- name: "example"
+  output_folder: experiments/unit_test/sti/reproduce/example/
+  sti_fn: data/interim/DeepSTI_data/test_results/phantom/3ori/Shin_SUB006_Ori001-Ori002-Ori003.nii.gz
+  R2p_fn_list:
+  - data/raw/SUB006/Generated/phantom/Ori001/SUB006_Ori001_R2p_snr10.nii.gz
+  - data/raw/SUB006/Generated/phantom/Ori002/SUB006_Ori002_R2p_snr10.nii.gz
+  - data/raw/SUB006/Generated/phantom/Ori003/SUB006_Ori003_R2p_snr10.nii.gz
+  mask_fn: data/raw/SUB006/Generated/sti/SUB006_mask.nii.gz
+  H0_fn_list:
+  - data/raw/SUB006/Generated/phantom/Ori001/SUB006_Ori001_ang.txt
+  - data/raw/SUB006/Generated/phantom/Ori002/SUB006_Ori002_ang.txt
+  - data/raw/SUB006/Generated/phantom/Ori003/SUB006_Ori003_ang.txt
+  params_fn: data/raw/SUB006/Generated/phantom/sti/SUB006_params.json
+  gt_xp_fn: data/raw/SUB006/Generated/phantom/sti/SUB006_xp.nii.gz
+  gt_xn_sti_fn: data/raw/SUB006/Generated/phantom/sti/SUB006_xn.nii.gz

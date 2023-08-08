@@ -1,0 +1,23 @@
+# data yml template for sti separation
+- name: # name of the data sample
+  output_folder: # folder to save the results
+  sti_fn: # STI reconstruction, nii
+  R2p_fn_list: # list of R2prime from each orientation, nii
+  - # R2prime from orientation 1
+  - # R2prime from orientation 2
+  # ...
+  mask_fn: # brain mask, nii
+  H0_fn_list: # list of H0 from each orientation, txt
+  - # H0 from orientation 1
+  - # H0 from orientation 2
+  # ...
+  params_fn: # parameters, json, contains "Dr_pos" and "Dr_neg"
+  gt_xp_fn: # ground truth of positive part, nii
+  gt_xn_sti_fn: # ground truth of negative part, nii
+
+  #### Important ####
+  # All images should be in the LPS orientation
+  # H0 is the B0 direction in the subject frame of reference, in the LPS orientation
+  # Dr_pos and Dr_neg are the relaxometric constant for the positive and negative part, respectively. 
+  # Currently only supports Dr_pos == Dr_neg
+

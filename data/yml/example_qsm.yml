@@ -1,0 +1,16 @@
+# example yml for qsm separation
+- name: "example"
+  output_folder: experiments/unit_test/qsm/reproduce/example/
+  qsm_fn: data/interim/LPCNN_data/test_results/3ori/Shin_SUB006_Ori001-Ori002-Ori003.nii.gz
+  R2p_fn_list:
+  - data/raw/SUB006/Generated/Ori001/SUB006_Ori001_R2p.nii.gz
+  - data/raw/SUB006/Generated/Ori002/SUB006_Ori002_R2p.nii.gz
+  - data/raw/SUB006/Generated/Ori003/SUB006_Ori003_R2p.nii.gz
+  mask_fn: data/raw/SUB006/Generated/sti/SUB006_mask.nii.gz
+  H0_fn_list:
+  - data/raw/SUB006/Generated/Ori001/SUB006_Ori001_ang.txt
+  - data/raw/SUB006/Generated/Ori002/SUB006_Ori002_ang.txt
+  - data/raw/SUB006/Generated/Ori003/SUB006_Ori003_ang.txt
+  params_fn: data/raw/SUB006/Generated/sti/SUB006_params.json
+  gt_xp_fn: data/raw/SUB006/Generated/sti/SUB006_xp_cosmos_nnls.nii.gz
+  gt_xn_fn: data/raw/SUB006/Generated/sti/SUB006_xn_cosmos_nnls.nii.gz
