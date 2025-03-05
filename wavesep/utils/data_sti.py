@@ -8,6 +8,8 @@ from .StiEvaluationToolkit import StiEvaluationToolkit as stet
 
 oj = os.path.join
 
+DR_POS = DR_NEG = 114.0 # default values
+
 
 def load_data(data_dict):
     R2p = [nib.load(fn).get_fdata() for fn in data_dict["R2p_fn_list"]]
@@ -27,6 +29,11 @@ def load_data(data_dict):
 
     with open(data_dict["params_fn"], "r") as f:
         params = json.load(f)
+
+    if "Dr_pos" not in params:
+        params["Dr_pos"] = DR_POS
+    if "Dr_neg" not in params:
+        params["Dr_neg"] = DR_NEG
 
     if "gt_xp_fn" in data_dict:
         gt_xp = nib.load(data_dict["gt_xp_fn"]).get_fdata()

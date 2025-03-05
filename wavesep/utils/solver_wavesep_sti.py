@@ -238,7 +238,7 @@ class Solver(object):
     ):
         """
         sti: (w,h,d,6)
-        R2p: (w,h,d,nori)
+        R2p: (w,h,d,nori), in Hz
         mask: (w,h,d)
         h: (3,nori)
         Dr_pos: float
@@ -293,7 +293,8 @@ class Solver(object):
 
             # record progress
             self.record(x, xold, F, L1, evaluator)
-            print(self.metrics[-1])
+            if self.metrics:
+                print(self.metrics[-1])
             print(self.relative_change[-1])
             if self.relative_change[-1] < 5e-3:
                 break
