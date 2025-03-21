@@ -12,8 +12,8 @@
   - # H0 from orientation 2
   # ...
   params_fn: # parameters, json, contains "Dr_pos" and "Dr_neg"
-  gt_xp_fn: # ground truth of positive part, nii
-  gt_xn_fn: # ground truth of negative part, nii
+  gt_xp_fn: # ground truth of positive part, nii, remove if not available
+  gt_xn_fn: # ground truth of negative part, nii, remove if not available
 
   #### Important ####
   # All images should be in the LPS orientation
