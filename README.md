@@ -1,6 +1,7 @@
 # WaveSep
-## Official implementation of WaveSep: A Flexible Wavelet-based Approach for Source Separation in Susceptibility Imaging
-WaveSep: A Flexible Wavelet-based Approach for Source Separation in Susceptibility Imaging (to appear in [MLCN 2023](https://mlcnworkshop.github.io/))
+This repo contains the official PyTorch implementation for the paper [WaveSep: A Flexible Wavelet-based Approach for Source Separation in Susceptibility Imaging](https://link.springer.com/chapter/10.1007/978-3-031-44858-4_6), at [MLCN 2023](https://mlcnworkshop.github.io/)
+
+by [Zhenghan Fang](https://zhenghanfang.github.io/), [Hyeong-Geol Shin](https://sites.google.com/view/hgshin-ptf/home?authuser=1), [Peter van Zijl](https://scholar.google.com/citations?user=mXPXyRgAAAAJ&hl=en), [Xu Li](https://scholar.google.com/citations?user=fakl0iYAAAAJ&hl=en), and [Jeremias Sulam](https://sites.google.com/view/jsulam)
 
 ## Dependencies
 Create and activate a new conda environment
