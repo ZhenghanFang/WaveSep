@@ -1,3 +1,5 @@
+import warnings
+
 from .data_qsm import load_data
 from .solver_wavesep_qsm import Solver, save_nii, save_fig
 
@@ -14,9 +16,12 @@ def run_wavesep_qsm(data_info, alg_config):
         data["gt"],
     )
     Dr_pos, Dr_neg = params["Dr_pos"], params["Dr_neg"]
-    assert Dr_pos == Dr_neg  # only support Dr_pos == Dr_neg
+    # assert Dr_pos == Dr_neg  # only support Dr_pos == Dr_neg
+    if Dr_pos != Dr_neg:
+        warnings.warn("Got Dr_pos != Dr_neg. The algorithm is optimized for Dr_pos == Dr_neg. Your input is Dr_pos = {} and Dr_neg = {}".format(Dr_pos, Dr_neg))
 
-    solver = Solver(qsm, R2p, Dr_pos, mask, gt)
+
+    solver = Solver(qsm, R2p, Dr_pos, Dr_neg, mask, gt)
 
     alpha, wavelet, level, Lambda = (
         alg_config["alpha"],

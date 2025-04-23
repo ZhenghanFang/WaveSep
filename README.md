@@ -28,6 +28,21 @@ The yml file contains the input data for QSM source separation.
 See data/yml/template_qsm.yml for more details.
 See data/yml/example_qsm.yml for an example.
 
+#### 🔄 Update (2025/04/23): Support for different Dr values for para- and dia-magnetic maps (`Dr_pos ≠ Dr_neg`)
+
+In this case, the second term in *f<sub>QSM</sub>* in Eq. (3) in the [paper](https://link.springer.com/chapter/10.1007/978-3-031-44858-4_6) is changed from
+
+1/2 * || R2' / Dr - (x_pos - x_neg) ||_2^2 
+
+to
+
+1/2 * || R2' / Dr_pos - (x_pos - x_neg * Dr_neg / Dr_pos) ||_2^2.
+
+where the units are:
+- `R2'`: Hz
+- `Dr`, `Dr_pos`, `Dr_neg`: Hz/ppm
+
+
 ### STI source separation
 ```
 python wavesep/sti_sep.py --data <yml of input data>

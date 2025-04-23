@@ -156,19 +156,20 @@ def get_grad_qsm(x, qsm, img_sz):
     return grad
 
 
-def get_grad_R2p(x, R2p, Dr_pos, img_sz):
+def get_grad_R2p(x, R2p, Dr_pos, Dr_neg, img_sz):
     xp, xn = reshape(x, img_sz)
-    r = xp - xn - R2p / Dr_pos
+    r = xp - xn * Dr_neg / Dr_pos - R2p / Dr_pos
     r = r.flatten()
-    grad = np.concatenate((r, -r))
+    grad = np.concatenate((r, r*(-Dr_neg / Dr_pos)))
     return grad
 
 
 class Solver(object):
-    def __init__(self, qsm, R2p, Dr_pos, mask, gt=None):
+    def __init__(self, qsm, R2p, Dr_pos, Dr_neg, mask, gt=None):
         self.qsm = qsm
         self.R2p = R2p
         self.Dr_pos = Dr_pos
+        self.Dr_neg = Dr_neg
         self.mask = mask
         self.evaluator = QsmSepEvaluator(gt) if gt is not None else None
 
@@ -182,7 +183,7 @@ class Solver(object):
         Return: 3D images, (xp, xn)
         """
         self.init()
-        qsm, R2p, Dr_pos, mask = self.qsm, self.R2p, self.Dr_pos, self.mask
+        qsm, R2p, Dr_pos, Dr_neg, mask = self.qsm, self.R2p, self.Dr_pos, self.Dr_neg, self.mask
         #         b = np.stack([qsm, R2p / Dr_pos])
         #         b = b.reshape(-1)
 
@@ -200,7 +201,7 @@ class Solver(object):
             g = get_grad_qsm(x, qsm, img_sz)
             nori = R2p.shape[3]
             for kori in range(nori):
-                g = g + get_grad_R2p(x, R2p[:, :, :, kori], Dr_pos, img_sz) / nori
+                g = g + get_grad_R2p(x, R2p[:, :, :, kori], Dr_pos, Dr_neg, img_sz) / nori
             x = x - alpha * g
 
             # proximal step
